@@ -1,4 +1,4 @@
-from django.views.generic import ListView,DetailView,CreateView
+from django.views.generic import ListView,DetailView,CreateView,TemplateView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Article
@@ -24,4 +24,9 @@ class ArticleCreateView(CreateView):
     model = Article
     template_name = 'article_new.html'
     fields = ('title', 'body', 'author',)
+
+class HomePageView(TemplateView):
+
+    template_name = 'home.html'
+
 

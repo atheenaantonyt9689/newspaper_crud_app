@@ -1,10 +1,13 @@
 from django.urls import path
+#from .views import HomePageView
 from .views import(
+    HomePageView,
 ArticleListView,
 ArticleUpdateView,
 ArticleDetailView,
 ArticleDeleteView,
-ArticleCreateView,) 
+ArticleCreateView,
+) 
 
 urlpatterns = [
 path('<int:pk>/edit/',
@@ -14,5 +17,7 @@ ArticleDetailView.as_view(), name='article_detail'),
 path('<int:pk>/delete/',
 ArticleDeleteView.as_view(), name='article_delete'), 
 path('new/', ArticleCreateView.as_view(), name='article_new'),
-path('', ArticleListView.as_view(), name='article_list'),
+path('/articles', ArticleListView.as_view(), name='article_list'),
+path('', HomePageView.as_view(), name='home')
+
 ]
